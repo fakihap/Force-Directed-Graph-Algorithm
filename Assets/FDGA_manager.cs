@@ -5,6 +5,8 @@ using UnityEngine;
 public class FDGA_manager : MonoBehaviour
 {
     public List<Node> nodes;
+    public int edgesCount;
+    public int[] edgesStart, edgesEnd;
 
     public float space = 10f;
 
@@ -19,6 +21,13 @@ public class FDGA_manager : MonoBehaviour
                     i.unadjacent.Add(j);    
                 }
             }
+        }
+    }
+
+    void Update(){
+        for(int i = 0; i < edgesCount; i++){
+            Debug.DrawLine(nodes[edgesStart[i]-1].transform.position, nodes[edgesEnd[i]-1].transform.position, Color.black);
+            
         }
     }
 }
